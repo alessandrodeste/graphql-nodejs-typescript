@@ -8,17 +8,21 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "esnext",
     "sourceMap": true,
     "allowJs": true,
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "lib": [
+     "esnext.asynciterable", "esnext", "dom"
+   ],
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "webpack"
   ]
 }
