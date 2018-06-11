@@ -20,9 +20,7 @@ export class ApplicationModule implements NestModule {
 
     consumer
       .apply(graphiqlExpress({ endpointURL: '/graphql' }))
-      .forRoutes('/graphiql');
-
-    consumer
+      .forRoutes('/graphiql')
       .apply(graphqlExpress(req => ({ schema, rootValue: req })))
       .forRoutes('/graphql');
   }

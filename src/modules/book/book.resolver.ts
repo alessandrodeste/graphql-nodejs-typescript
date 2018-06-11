@@ -1,4 +1,4 @@
-import { Query, Resolver, ResolveProperty, Mutation } from '@nestjs/graphql';
+import { Query, Resolver, ResolveProperty } from '@nestjs/graphql';
 
 const books = [
   {
@@ -38,7 +38,7 @@ export class BookResolver {
   }
 
   @ResolveProperty('author')
-  async getBooks(author, args, context, info) {
-    return [authors[0]];
+  async getAuthor(author, args, context, info) {
+    return authors[0];
   }
 }
