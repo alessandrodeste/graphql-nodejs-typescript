@@ -27,7 +27,7 @@ const authors = [
 ];
 
 @Resolver('Book')
-export class AuthorResolver {
+export class BookResolver {
 
   @Query('books')
   async getBook(obj, args, context, info) {
