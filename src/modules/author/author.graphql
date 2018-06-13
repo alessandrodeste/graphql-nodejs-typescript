@@ -1,17 +1,27 @@
 type Author {
   id: String!,
-  name: String,
+  name: String!,
   age: Int,
   books: [Book]
 }
 
+input AuthorCreate {
+  name: String!,
+  age: Int
+}
+
+type AuthorList {
+  authors: [Author]!
+  articlesCount: Int!
+}
+
 type Query {
-  authors: [Author]
+  authors(limit: Int, offset: Int, token: String!): AuthorList!
 }
 
 type Mutation {
-  addAuthor (
-    name: String,
-    age: Int
+  createAuthor (
+    author: AuthorCreate!,
+    token: String!
   ): Author
 }
