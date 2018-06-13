@@ -11,5 +11,12 @@ export default {
     Book: () => ({
         id: () => casual.uuid,
         title: () => casual.title,
-    })
+    }),
+    AuthorList: () => {
+        const nr = casual.integer(3, 10)
+        return {
+            authors: () => new MockList(nr),
+            listCount: () => nr,
+        };
+    }
 }

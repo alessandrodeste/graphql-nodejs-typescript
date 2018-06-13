@@ -12,7 +12,7 @@ input AuthorCreate {
 
 type AuthorList {
   authors: [Author]!
-  articlesCount: Int!
+  listCount: Int!
 }
 
 type Query {
