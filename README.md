@@ -20,3 +20,7 @@ $ npm run start:dev
 # production mode
 npm run start:prod
 ```
+
+## Mocked data
+
+to enable / disable mocked data, work on the function **addMockFunctionsToSchema** in the file **src/author.module.ts**

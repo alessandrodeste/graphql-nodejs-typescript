@@ -20,6 +20,7 @@ export class ApplicationModule implements NestModule {
       resolvers: delegates as any,
     });
 
+    // Remove this line to disable mocked data
     addMockFunctionsToSchema({ schema, mocks });
 
     consumer
