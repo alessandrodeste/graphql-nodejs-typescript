@@ -1,11 +1,13 @@
 import { Module, MiddlewareConsumer, NestModule, RequestMethod } from '@nestjs/common';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import { GraphQLModule, GraphQLFactory } from '@nestjs/graphql';
-import { AuthorResolver } from './resolvers/author';
+import { AuthorModule } from './modules/author/author.module';
 import { BookModule } from './modules/book/book.module';
+import { addMockFunctionsToSchema } from 'graphql-tools';
+import mocks from './mocks';
 
 @Module({
-  imports: [GraphQLModule, AuthorResolver, BookModule],
+  imports: [GraphQLModule, AuthorModule, BookModule],
 })
 export class ApplicationModule implements NestModule {
   constructor(private readonly graphQLFactory: GraphQLFactory) {}
@@ -17,6 +19,8 @@ export class ApplicationModule implements NestModule {
       typeDefs,
       resolvers: delegates as any,
     });
+
+    addMockFunctionsToSchema({ schema, mocks });
 
     consumer
       .apply(graphiqlExpress({ endpointURL: '/graphql' }))
