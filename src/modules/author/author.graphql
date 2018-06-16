@@ -11,7 +11,7 @@ input AuthorCreate {
 }
 
 type AuthorList {
-  authors: [Author]!
+  list: [Author]!
   listCount: Int!
 }
 

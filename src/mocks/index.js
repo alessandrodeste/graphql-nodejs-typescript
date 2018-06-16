@@ -15,7 +15,7 @@ export default {
     AuthorList: () => {
         const nr = casual.integer(3, 10)
         return {
-            authors: () => new MockList(nr),
+            list: () => new MockList(nr),
             listCount: () => nr,
         };
     }
